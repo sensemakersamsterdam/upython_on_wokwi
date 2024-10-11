@@ -1,0 +1,51 @@
+{
+  "version": 1,
+  "author": "Anonymous maker",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "wokwi-pi-pico",
+      "id": "pico1",
+      "top": 37.26,
+      "left": -50.85,
+      "attrs": { "env": "micropython-20231227-v1.22.0" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": 65.61,
+      "left": 112.55,
+      "attrs": { "color": "red", "flip": "1" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led2",
+      "top": 123.21,
+      "left": 112.55,
+      "attrs": { "color": "blue", "flip": "1" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 188.36,
+      "left": 41.55,
+      "attrs": { "value": "120" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r2",
+      "top": 197.96,
+      "left": 41.55,
+      "attrs": { "value": "120" }
+    }
+  ],
+  "connections": [
+    [ "pico1:GND.5", "led2:C", "black", [ "h0" ] ],
+    [ "pico1:GND.5", "led1:C", "black", [ "h135.6", "v-105.6" ] ],
+    [ "pico1:GP19", "r1:1", "green", [ "h20.4" ] ],
+    [ "pico1:GP18", "r2:1", "green", [ "h0" ] ],
+    [ "r1:2", "led1:A", "green", [ "v0", "h8.4", "v-76.8" ] ],
+    [ "led2:A", "r2:2", "green", [ "v0", "h-9.2", "v38.4" ] ]
+  ],
+  "dependencies": {}
+}
