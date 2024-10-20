@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "author": "Anonymous maker",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "wokwi-pi-pico",
+      "id": "pico",
+      "top": -108.75,
+      "left": 32.4,
+      "attrs": { "env": "micropython-20231227-v1.22.0" }
+    },
+    {
+      "type": "wokwi-led-ring",
+      "id": "ring1",
+      "top": -133.76,
+      "left": -219.61,
+      "attrs": { "pixels": "16" }
+    }
+  ],
+  "connections": [
+    [ "pico:VBUS", "ring1:VCC", "red", [ "h30", "v-76.8", "h-163.2", "v220.8", "h-124.8" ] ],
+    [ "pico:GND.4", "ring1:GND", "blue", [ "h0" ] ],
+    [ "pico:GP14", "ring1:DIN", "green", [ "h0" ] ]
+  ],
+  "dependencies": {}
+}
