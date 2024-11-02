@@ -1,0 +1,48 @@
+{
+  "version": 1,
+  "author": "Anonymous maker",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "wokwi-pi-pico",
+      "id": "pico",
+      "top": 25.65,
+      "left": -140.4,
+      "attrs": { "env": "micropython-20231227-v1.22.0" }
+    },
+    {
+      "type": "wokwi-stepper-motor",
+      "id": "stepper1",
+      "top": -92.39,
+      "left": 163.63,
+      "attrs": { "size": "17", "arrow": "red" }
+    },
+    { "type": "wokwi-a4988", "id": "drv1", "top": 168, "left": 33.6, "attrs": {} },
+    {
+      "type": "wokwi-stepper-motor",
+      "id": "stepper2",
+      "top": -92.39,
+      "left": 336.43,
+      "attrs": { "size": "17", "arrow": "green", "display": "angle" }
+    }
+  ],
+  "connections": [
+    [ "drv1:2B", "stepper1:B+", "limegreen", [ "h0" ] ],
+    [ "drv1:2A", "stepper1:A+", "purple", [ "h0" ] ],
+    [ "drv1:1A", "stepper1:A-", "magenta", [ "h0" ] ],
+    [ "drv1:1B", "stepper1:B-", "yellow", [ "h0" ] ],
+    [ "drv1:STEP", "pico:GP20", "green", [ "h-48", "v-57.6" ] ],
+    [ "drv1:DIR", "pico:GP19", "green", [ "h-57.6", "v-57.6" ] ],
+    [ "drv1:VMOT", "pico:VBUS", "orange", [ "h19.35", "v-134.32", "h-174" ] ],
+    [ "drv1:GND.2", "pico:GND.6", "black", [ "h28.95", "v-19.12" ] ],
+    [ "pico:GND.6", "drv1:ENABLE", "black", [ "h106.8", "v19.2" ] ],
+    [ "drv1:RESET", "pico:3V3", "red", [ "h-19.2", "v-134.4" ] ],
+    [ "drv1:GND.1", "drv1:GND.2", "black", [ "v0.08", "h28.95", "v-57.68" ] ],
+    [ "stepper1:B-", "stepper2:B-", "yellow", [ "v38.4", "h182.39" ] ],
+    [ "stepper1:B+", "stepper2:B+", "limegreen", [ "v48", "h182.4" ] ],
+    [ "stepper1:A+", "stepper2:A+", "purple", [ "v57.6", "h182.4" ] ],
+    [ "stepper1:A-", "stepper2:A-", "magenta", [ "v67.2", "h182.4" ] ],
+    [ "pico:3V3", "drv1:VDD", "red", [ "h202.8", "v153.6", "h-48.15" ] ]
+  ],
+  "dependencies": {}
+}
